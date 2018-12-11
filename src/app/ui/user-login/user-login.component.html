@@ -1,0 +1,15 @@
+<div *ngIf="!(auth.user | async); else alreadyLoggedIn">
+
+    <user-form></user-form>
+
+</div>
+
+<ng-template #alreadyLoggedIn>
+  <h3>Velkommen til din profil</h3>
+  <p>Under din profil kan du ændre & opdatere dine profil oplysninger samt se og acceptere dine indhentede tilbud</p>
+  <p class="text-success">
+    Du er nu logget ind <i class="fa fa-thumbs-up"></i>
+  </p>
+
+  <!-- <button class="button" [routerLink]="['/create-offer/']">Opret tilbud</button> -->
+</ng-template>

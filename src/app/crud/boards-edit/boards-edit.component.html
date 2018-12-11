@@ -1,0 +1,73 @@
+<div class="button-row">
+  <a mat-fab color="primary" (click)="boardsDetails()"><mat-icon>visibility</mat-icon></a>
+</div>
+<form [formGroup]="boardsForm" (ngSubmit)="onFormSubmit(boardsForm.value)">
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Display Name" formControlName="displayName"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!boardsForm.get('displayName').valid && boardsForm.get('displayName').touched">Please enter your display name</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="First Name" formControlName="firstName"
+           [errorStateMatcher]="matcher"></textarea>
+    <mat-error>
+      <span *ngIf="!boardsForm.get('firstName').valid && boardsForm.get('firstName').touched">Please enter your first name</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Last Name" formControlName="lastName"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!boardsForm.get('lastName').valid && boardsForm.get('lastName').touched">Please enter Book Author</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+      <input matInput placeholder="Telefon nummer" formControlName="phoneNumber"
+             [errorStateMatcher]="matcher">
+      <mat-error>
+        <span *ngIf="!boardsForm.get('phoneNumber').valid && boardsForm.get('phoneNumber').touched">Please enter Telefon nummer</span>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width"> 
+        <input matInput placeholder="Adresse" formControlName="address"
+               [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!boardsForm.get('address').valid && boardsForm.get('address').touched">Please enter Adresse</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Postnummer" formControlName="zipCode"
+                 [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!boardsForm.get('zipCode').valid && boardsForm.get('zipCode').touched">Please enter Adresse</span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="By" formControlName="city"
+                   [errorStateMatcher]="matcher">
+            <mat-error>
+              <span *ngIf="!boardsForm.get('city').valid && boardsForm.get('city').touched">Please enter Adresse</span>
+            </mat-error>
+          </mat-form-field>
+
+          <div class="example-full-width">
+              <input  placeholder="id" formControlName="uid" type="hidden" >
+          </div>
+
+            <div class="example-full-width">
+                <input  placeholder="email" formControlName="email" type="hidden" >
+            </div>
+  
+  <div class="button-row">
+    <button type="submit" [disabled]="!boardsForm.valid" mat-fab color="primary"><mat-icon>save</mat-icon></button>
+  </div>
+</form>

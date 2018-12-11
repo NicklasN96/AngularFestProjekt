@@ -1,0 +1,31 @@
+
+
+<div class="button-row">
+  <a mat-fab color="primary" [routerLink]="['/boards']"><mat-icon>list</mat-icon></a>
+</div>
+<form [formGroup]="boardsForm" (ngSubmit)="onFormSubmit(boardsForm.value)">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="displayName" formControlName="displayName"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!boardsForm.get('displayName').valid && boardsForm.get('displayName').touched">Please enter Board Title</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="email" formControlName="email"
+           [errorStateMatcher]="matcher"></textarea>
+    <mat-error>
+      <span *ngIf="!boardsForm.get('email').valid && boardsForm.get('email').touched">Please enter Board Description</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="uid" formControlName="uid"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!boardsForm.get('uid').valid && boardsForm.get('uid').touched">Please enter Board Author</span>
+    </mat-error>
+  </mat-form-field>
+  <div class="button-row">
+    <button type="submit" [disabled]="!boardsForm.valid" mat-fab color="primary"><mat-icon>save</mat-icon></button>
+  </div>
+</form>

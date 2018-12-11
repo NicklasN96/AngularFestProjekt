@@ -1,0 +1,152 @@
+<h2>Tryk på den knap her under, ud fra hvilken bruger rolle du ønsker at logge ind som</h2>
+<h3>Når den lyser grønt, betyder det du har markeret knappen</h3>
+
+<!-- toggle login bruger -->
+<button (click)="toggleLogin()" id="bt" class="btn btn-success" [disabled]="showLogin" style="margin-right:50px;">Log ind bruger</button>
+
+<!-- toggle login firma -->
+<button [routerLink]="['/login-company']" id="bt" class="btn btn-primary" [disabled]="!showLogin">Log ind firma</button>
+
+<br>
+<br>
+
+<!-- ng-container indeholder login bruger -->
+<ng-container *ngIf="showLogin">
+    
+    <form [formGroup]="userForm" *ngIf="newUser" (ngSubmit)="login()">
+    
+    <h3>Log ind for at forsætte til din bruger profil</h3>
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email2" class="input" formControlName="email" required autocomplete="new-password">
+    
+    <div *ngIf="formErrors.email" class="help is-danger">
+        {{ formErrors.email }}
+    </div>
+    
+    <label for="password">Password</label>
+    <input type="password" id="password2" name="password2" class="input" formControlName="password" required autocomplete="new-password">
+    
+    <div *ngIf="formErrors.password" class="help is-danger">
+        {{ formErrors.password }}
+    </div>
+    
+    <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">Log ind</button>
+    
+    <span *ngIf="userForm.valid" class="help is-success">Form Looks Valid</span>
+    
+    <a *ngIf="!passReset && userForm.controls.email.valid" class="help is-info" (click)="resetPassword()">Reset Password for {{userForm.value.email}}?</a>
+    <p *ngIf="passReset" class="help is-info">Reset requested. Check your email instructions.</p>
+    
+    </form>
+</ng-container>
+
+
+
+<!-- ng-container indeholder login firma -->
+<!-- <ng-container *ngIf="!showLogin">
+    <form [formGroup]="userCompanyForm" *ngIf="newUserCompany" (ngSubmit)="loginCompany()">
+    
+        <h3>Log ind for at forsætte til din firma profil</h3>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email2" class="input" formControlName="email" required autocomplete="new-password">
+        
+        <div *ngIf="formErrors.email" class="help is-danger">
+            {{ formErrors.email }}
+        </div>
+        
+        <label for="password">Password</label>
+        <input type="password" id="password2" name="password2" class="input" formControlName="password" required autocomplete="new-password">
+        
+        <div *ngIf="formErrors.password" class="help is-danger">
+            {{ formErrors.password }}
+        </div>
+        
+        <button type="submit" class="btn btn-primary" [disabled]="!userCompanyForm.valid">Log ind</button>
+        
+        <span *ngIf="userCompanyForm.valid" class="help is-success">Form Looks Valid</span>
+        
+        <a *ngIf="!passReset && userCompanyForm.controls.email.valid" class="help is-info" (click)="resetPassword()">Reset Password for {{userCompanyForm.value.email}}?</a>
+        <p *ngIf="passReset" class="help is-info">Reset requested. Check your email instructions.</p>
+        
+        </form>
+</ng-container> -->
+
+
+
+<br>
+<br>
+<p>---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+
+
+<h2>Tryk på den knap her under, ud fra hvilken bruger du ønsker at oprette</h2>
+<h3>Når den lyser grønt, betyder det du har markeret knappen</h3>
+<!-- toggle bruger form -->
+<button (click)="toggle()" id="bt" class="btn btn-success" [disabled]="show" style="margin-right:50px;">Opret bruger</button> 
+
+<!-- toggle firma form -->
+<button [routerLink]="['/login-company']" id="bt" class="btn btn-primary" [disabled]="!show">Opret firma</button> 
+
+<br>
+<br>
+
+
+<!-- ng-container indeholder opret bruger -->
+<ng-container *ngIf="show"> <!-- !show = userCompany  -->
+    <form [formGroup]="userForm" *ngIf="newUser" (ngSubmit)="signup()">
+    
+    
+    <h3>Opret ny bruger profil</h3>
+    <!--<p class="button is-small" (click)="toggleForm()">Already Registered?</p>-->
+    <hr>
+    <label for="email">Email</label>
+    <input type="email" class="input" formControlName="email" name="email" required autocomplete="new-password">
+    
+    <div *ngIf="formErrors.email" class="notification is-danger">
+        {{ formErrors.email }}
+    </div>
+    
+    <label for="password">Password</label>
+    <input type="password" class="input" formControlName="password" name="password" required>
+    
+    <div *ngIf="formErrors.password" class="notification is-danger">
+        {{ formErrors.password }}
+    </div>
+    
+    <br>
+
+    <div *ngIf="userForm.valid" class="notification is-success">Form is valid</div>
+    <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">Opret Profil</button>
+    
+    </form>
+</ng-container>
+
+
+
+
+<!-- ng-container indeholder opret firma -->
+<!-- <ng-container *ngIf="!show"> show = userCompany  -->
+    <!-- <form [formGroup]="userCompanyForm" *ngIf="newUserCompany" (ngSubmit)="signupCompany()">
+
+        <h3>Opret ny firma profil</h3> -->
+        <!--<p class="button is-small" (click)="toggleForm()">Already Registered?</p>-->
+        <!-- <hr>
+        <label for="email">Email</label>
+        <input type="email" class="input" formControlName="email" name="email">
+
+        <div *ngIf="formErrors.email" class="notification is-danger">
+            {{ formErrors.email }}
+        </div>
+        
+        <label for="password">Password</label>
+        <input type="password" class="input" formControlName="password" name="password" required>
+        
+        <div *ngIf="formErrors.password" class="notification is-danger">
+            {{ formErrors.password }}
+        </div>
+        
+        <br>
+        <div *ngIf="userCompanyForm.valid" class="notification is-success">Form is valid</div>
+        <button type="submit" class="btn btn-primary" [disabled]="!userCompanyForm.valid">Opret Profil</button>
+        
+        </form>
+</ng-container> -->

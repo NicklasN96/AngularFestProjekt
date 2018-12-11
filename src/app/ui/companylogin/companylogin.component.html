@@ -1,0 +1,56 @@
+<div *ngIf="!(authCompany.company | async); else alreadyLoggedInCompany">
+
+    <companyform></companyform>
+
+</div>
+
+<ng-template #alreadyLoggedInCompany>
+  <h3>Velkommen til din Firma profil</h3>
+  <p>Under din profil kan du ændre & opdatere dine profil oplysninger samt se dine udsendte og accepterede tilbud</p>
+  <p class="text-success">
+    Du er nu logget ind <i class="fa fa-thumbs-up"></i>
+  </p>
+</ng-template>
+
+
+
+
+
+<div class="box" *ngIf="!newUserCompany">
+  <div *ngIf="authCompany.company | async; then company else guest">
+          <!-- template will replace this div -->
+  </div>
+</div>
+
+<!-- User NOT logged in -->
+<ng-template #guest class="box">
+  <h3>Hej, Firmanavn</h3>
+  <p class="card-text">Log ind for at se din profil</p>
+  <!--<button class="button" routerLink="/login">Log ind</button>-->
+</ng-template>
+
+<!-- User logged in -->
+<ng-template #company>
+  <div *ngIf="authCompany.company | async as company">
+    <h3>Hej, {{ company.displayName }}</h3>
+    <h4>Fornavn : {{ company.firstName }}</h4>
+    <h4>Efternavn : {{ company.lastName }}</h4>
+    <h4>Telefon : {{ company.phoneNumber }}</h4>
+    <h4>Adresse : {{ company.address }}</h4>
+    <h4>Postnr : {{ company.zipCode }}</h4>
+    <h4>By : {{ company.city }}</h4>
+    <h4>Email : {{ company.email }}</h4>
+    <h4>CVR : {{ company.cvr }}</h4>
+    <h4>Kontakt Person : {{ company.contactPerson }}</h4>
+    <!--<img class="card-img-top" [src]="user.photoURL || 'https://api.adorable.io/avatars/109/fire.png'" width=50px>-->
+    <p class="text-truncate">UID : {{ company.uid }}</p>
+
+    <button class="btn btn-primary"[routerLink]="['/boards-create-company/', company.uid]">Færdiggør din profil</button>
+    <br>
+    <br>
+    <button class="btn btn-primary" [routerLink]="['/boards-details-company/', company.uid]">Opdater profil</button>
+    <br>
+    <br>
+    <button class="btn btn-danger"(click)="logoutCompany()">Log ud</button>
+  </div>
+</ng-template>

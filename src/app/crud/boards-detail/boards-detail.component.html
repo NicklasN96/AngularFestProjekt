@@ -1,0 +1,38 @@
+<button class="button" [routerLink]="['/login']">Tilbage</button>
+<br>
+
+<div class="button-row">
+  <!-- <a mat-fab color="primary" [routerLink]="['/boards']"><mat-icon>list</mat-icon></a> -->
+</div>
+<mat-card class="example-card">
+  <!-- <mat-card-header>
+    <mat-card-title><h2>{{user.displayName}}</h2></mat-card-title>
+    <mat-card-subtitle>{{user.firstName}}</mat-card-subtitle>
+  </mat-card-header> -->
+  <mat-card-content>
+    <dl>
+      <dt>DisplayName:</dt>
+      <dd>{{user.displayName}}</dd>
+      <dt>Fornavn:</dt>
+      <dd>{{user.firstName}}</dd>
+      <dt>Efternavn:</dt>
+      <dd>{{user.lastName}}</dd>
+      <dt>Telefonnr.:</dt>
+      <dd>{{user.phoneNumber}}</dd>
+      <dt>Adresse:</dt>
+      <dd>{{user.address}}</dd>
+      <dt>Postnr:</dt>
+      <dd>{{user.zipCode}}</dd>
+      <dt>By:</dt>
+      <dd>{{user.city}}</dd>
+      <dt>Email:</dt>
+      <dd>{{user.email}}</dd>
+      <dt>Id:</dt>
+      <dd>{{user.uid}}</dd>
+    </dl>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-fab color="primary" [routerLink]="['/boards-edit', user.key]" class="edit-btn"><mat-icon>edit</mat-icon></a>
+    <!-- <a mat-fab color="warn" (click)="deleteBoard(user.key)"><mat-icon>delete</mat-icon></a> -->
+  </mat-card-actions>
+</mat-card>

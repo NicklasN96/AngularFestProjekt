@@ -1,0 +1,75 @@
+<h1>Velkommen til Festrobotten</h1>
+<p>Hos Festrobotten hjælper vi dig med at indhente tilbud på din næste fest nemt og hurtigt</p>
+<p>Du skal bare udfylde alle felterne også vil du modtage op til 6 tilbud inden for 2 dage</p>
+
+
+
+<button class="btn btn-primary" [routerLink]="['/login']">Tilbage til log ind</button>
+<br>
+<div class="button-row">
+</div>
+
+<br>
+
+<form [formGroup]="partyForm" (ngSubmit)="onFormSubmit(partyForm.value)">
+
+  <div class="example-full-width">
+    <input matInput placeholder="Nr of persons" formControlName="nrOfPersons"  type="number">
+    <!-- <mat-error>
+      <span *ngIf="!partyForm.get('nrOfPersons').valid && partyForm.get('nrOfPersons').touched">Please enter Board Title</span>
+    </mat-error> -->
+  </div>
+
+  <br>
+
+  <div class="example-full-width">
+    <input matInput placeholder="Max price" formControlName="maxPrice" type="number">
+    <!-- <mat-error>
+      <span *ngIf="!partyForm.get('maxPrice').valid && partyForm.get('maxPrice').touched">Please enter Board Description</span>
+    </mat-error> -->
+  </div>
+
+  <br>
+
+  <div class="example-full-width">
+    <input matInput placeholder="Date" formControlName="date">
+    <!-- <mat-error>
+      <span *ngIf="!partyForm.get('date').valid && partyForm.get('date').touched">Please enter Board Author</span>
+    </mat-error> -->
+  </div>
+
+  <br>
+
+  <div class="example-full-width">
+    <input matInput placeholder="Time" formControlName="time" type="time">
+  </div>
+  
+  <br>
+
+  <div class="example-full-width">
+    <input matInput placeholder="Location" formControlName="location" type="text">
+  </div>
+    
+  <br>
+
+  <div class="example-full-width">
+    <input matInput placeholder="type" formControlName="type" type="text">
+  </div>
+      
+  <br>
+
+  <div class="example-full-width">
+    <input  placeholder="id" formControlName="uid" type="hidden" >
+</div>
+
+  <div class="example-full-width">
+      <input  placeholder="email" formControlName="email" type="hidden" >
+  </div>
+
+  <div class="button-row">
+    <button class="button" type="submit" [disabled]="!partyForm.valid" mat-fab color="primary">send oplysninger</button>
+  </div>
+
+</form>
+
+

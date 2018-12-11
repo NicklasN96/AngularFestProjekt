@@ -1,0 +1,74 @@
+<div class="button-row">
+  <a (click)="boardsDetailsCompany()">Tilbage til oversigten</a>
+</div>
+<form [formGroup]="boardsCompanyForm" (ngSubmit)="onFormSubmitCompany(boardsCompanyForm.value)">
+
+  <!-- <form-field class="example-full-width"> -->
+    <input placeholder="Firmanavn" formControlName="displayName">
+    <!-- <error>
+      <span *ngIf="!boardsCompanyForm.get('displayName').valid && boardsCompanyForm.get('displayName').touched">Udfyld venligst Firmanavn</span>
+    </error> -->
+  <!-- </form-field> -->
+
+  <!-- <form-field class="example-full-width"> -->
+    <input placeholder="Fornavn" formControlName="firstName">
+    <!-- <error>
+      <span *ngIf="!boardsCompanyForm.get('firstName').valid && boardsCompanyForm.get('firstName').touched">Udfyld venligst dit fornavn</span>
+    </error> -->
+  <!-- </form-field> -->
+
+  <!-- <form-field class="example-full-width"> -->
+    <input placeholder="Efternavn" formControlName="lastName">
+    <!-- <error>
+      <span *ngIf="!boardsCompanyForm.get('lastName').valid && boardsCompanyForm.get('lastName').touched">Udfyld venligst dit efternavn</span>
+    </error> -->
+  <!-- </form-field> -->
+
+  <!-- <form-field class="example-full-width"> -->
+      <input placeholder="Telefon nummer" formControlName="phoneNumber">
+      <!-- <error>
+        <span *ngIf="!boardsCompanyForm.get('phoneNumber').valid && boardsCompanyForm.get('phoneNumber').touched">Udfyld venligst dit telefon nummer</span>
+      </error> -->
+    <!-- </form-field> -->
+
+    <!-- <form-field class="example-full-width">  -->
+        <input placeholder="Adresse" formControlName="address">
+        <!-- <error>
+          <span *ngIf="!boardsCompanyForm.get('address').valid && boardsCompanyForm.get('address').touched">Udfyld venligst din adresse</span>
+        </error> -->
+      <!-- </form-field> -->
+
+      <!-- <form-field class="example-full-width"> -->
+          <input placeholder="Postnummer" formControlName="zipCode">
+          <!-- <error>
+            <span *ngIf="!boardsCompanyForm.get('zipCode').valid && boardsCompanyForm.get('zipCode').touched">Udfyld venligst dit post nummer</span>
+          </error> -->
+        <!-- </form-field> -->
+
+        <!-- <form-field class="example-full-width"> -->
+            <input placeholder="By" formControlName="city">
+            <!-- <error>
+              <span *ngIf="!boardsCompanyForm.get('city').valid && boardsCompanyForm.get('city').touched">Udfyld venligst din by</span>
+            </error> -->
+          <!-- </form-field> -->
+
+          <!-- <form-field class="example-full-width"> -->
+            <!-- <input placeholder="CVR" formControlName="cvr"> -->
+            <!-- <error>
+              <span *ngIf="!boardsCompanyForm.get('cvr').valid && boardsCompanyForm.get('cvr').touched">Udfyld venligst din by</span>
+            </error> -->
+          <!-- </form-field> -->
+          <!-- <input placeholder="kontakt person" formControlName="contactPerson"> -->
+
+          <div class="example-full-width">
+              <input  placeholder="id" formControlName="uid" value="{{company.uid}}"  >
+          </div>
+
+            <div class="example-full-width">
+                <input  placeholder="email" formControlName="email" value="{{company.email}}">
+            </div>
+  
+  <div class="button-row">
+    <button type="submit" [disabled]="!boardsCompanyForm.valid">save</button>
+  </div>
+</form>

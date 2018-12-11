@@ -1,0 +1,50 @@
+<div class="button-row">
+  <a mat-fab color="primary" [routerLink]="['/login-company']"><mat-icon>list</mat-icon></a>
+</div>
+<mat-card class="example-card">
+  <!-- <mat-card-header>
+    <mat-card-title><h2>{{user.displayName}}</h2></mat-card-title>
+    <mat-card-subtitle>{{user.firstName}}</mat-card-subtitle>
+  </mat-card-header> -->
+  <mat-card-content>
+    <dl>
+      <dt>Firmanavn:</dt>
+      <dd>{{company.displayName}}</dd>
+
+      <dt>Fornavn:</dt>
+      <dd>{{company.firstName}}</dd>
+
+      <dt>Efternavn:</dt>
+      <dd>{{company.lastName}}</dd>
+
+      <dt>Telefonnr.:</dt>
+      <dd>{{company.phoneNumber}}</dd>
+
+      <dt>Adresse:</dt>
+      <dd>{{company.address}}</dd>
+
+      <dt>Postnr:</dt>
+      <dd>{{company.zipCode}}</dd>
+
+      <dt>By:</dt>
+      <dd>{{company.city}}</dd>
+
+      <dt>CVR:</dt>
+      <dd>{{company.cvr}}</dd>
+
+      <dt>kontakt Person:</dt>
+      <dd>{{company.contactPerson}}</dd>
+
+      <dt>Email:</dt>
+      <dd>{{company.email}}</dd>
+
+      <dt>Id:</dt>
+      <dd>{{company.uid}}</dd>
+
+    </dl>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-fab color="primary" [routerLink]="['/boards-edit-company', company.key]" class="edit-btn"><mat-icon>edit</mat-icon></a>
+    <!-- <a mat-fab color="warn" (click)="deleteBoard(user.key)"><mat-icon>delete</mat-icon></a> -->
+  </mat-card-actions>
+</mat-card>
